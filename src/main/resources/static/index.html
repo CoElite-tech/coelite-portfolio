@@ -1,10 +1,9 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CoElite.tech - Atlassian, Microsoft & Full-Stack Experts</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -21,7 +20,6 @@
       --glow: rgba(59, 130, 246, 0.5);
     }
 
-    /* Light mode variables */
     .light-mode {
       --primary: #ffffff;
       --secondary: #f8fafc;
@@ -53,8 +51,6 @@
       line-height: 1.6;
       overflow-x: hidden;
     }
-
-    /* Dot pattern background */
     .dot-pattern {
       position: fixed;
       top: 0;
@@ -68,19 +64,18 @@
       z-index: 0;
     }
 
-    /* Custom scrollbar */
     ::-webkit-scrollbar {
       width: 6px;
     }
+
     ::-webkit-scrollbar-track {
       background: var(--background);
     }
+
     ::-webkit-scrollbar-thumb {
       background: var(--accent);
       border-radius: 3px;
     }
-
-    /* Navigation */
     .navbar {
       position: fixed;
       top: 0;
@@ -154,11 +149,6 @@
 
     }
 
-    /* .nav-link:hover {
-      color: var(--text-primary);
-      background: rgba(59, 130, 246, 0.1);
-    } */
-
     .nav-link:hover::after {
       width: 100%;
     }
@@ -198,7 +188,6 @@
       z-index: 1;
     }
 
-    /* Hero Section */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -283,7 +272,6 @@
       transform: translateY(-2px);
     }
 
-    /* Floating card for hero visual */
     .hero-visual {
       opacity: 0;
       transform: translateY(30px);
@@ -338,7 +326,6 @@
       background-clip: text;
     }
 
-    /* Section styling */
     .section {
       padding: 5rem 2rem;
       position: relative;
@@ -369,7 +356,6 @@
       font-size: 1.1rem;
     }
 
-    /* Glass cards */
     .glass-card {
       background: rgba(15, 15, 15, 0.6);
       backdrop-filter: blur(20px);
@@ -387,7 +373,6 @@
     .glass-card::before {
       content: '';
       position: absolute;
-      /*inset: 0;*/
       border-radius: 16px;
       padding: 1px;
       background: linear-gradient(45deg, transparent, rgba(59, 130, 246, 0.2), transparent);
@@ -406,7 +391,6 @@
       opacity: 1;
     }
 
-    /* Grid layouts */
     .grid-2 {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -425,7 +409,6 @@
       gap: 2rem;
     }
 
-    /* Tech logos */
     .tech-logos {
       display: flex;
       justify-content: center;
@@ -452,7 +435,6 @@
       transform: translateY(-2px);
     }
 
-    /* Value cards */
     .value-card {
       text-align: center;
     }
@@ -477,7 +459,6 @@
       color: var(--text-secondary);
     }
 
-    /* Service cards */
     .service-title {
       font-size: 1.5rem;
       font-weight: 600;
@@ -504,7 +485,6 @@
       font-weight: bold;
     }
 
-    /* Process steps */
     .process-step {
       text-align: center;
       position: relative;
@@ -535,7 +515,6 @@
       font-size: 0.9rem;
     }
 
-    /* CTA Section */
     .cta-section {
       background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
       text-align: center;
@@ -553,7 +532,6 @@
       margin-bottom: 2rem;
     }
 
-    /* Contact form */
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -634,7 +612,6 @@
       color: var(--text-primary);
     }
 
-    /* Footer */
     .footer {
       background: var(--surface);
       border-top: 1px solid var(--border);
@@ -686,7 +663,6 @@
       color: var(--text-muted);
     }
 
-    /* Rotating text animation */
     .rotating-text {
       display: inline-block;
       background: linear-gradient(45deg, #3b82f6, #8b5cf6);
@@ -712,21 +688,46 @@
     }
 
     @keyframes blink {
-      0%, 50% { opacity: 1; }
-      51%, 100% { opacity: 0; }
+
+      0%,
+      50% {
+        opacity: 1;
+      }
+
+      51%,
+      100% {
+        opacity: 0;
+      }
     }
 
     @keyframes fadeInOut {
-      0% { opacity: 0; transform: translateY(20px); }
-      20% { opacity: 1; transform: translateY(0); }
-      80% { opacity: 1; transform: translateY(0); }
-      100% { opacity: 0; transform: translateY(-20px); }
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      20% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      80% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
     }
+
     @keyframes fadeInUp {
       from {
         opacity: 0;
         transform: translateY(30px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -734,9 +735,12 @@
     }
 
     @keyframes float {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: translateY(0px);
       }
+
       50% {
         transform: translateY(-10px);
       }
@@ -746,12 +750,11 @@
       animation: float 6s ease-in-out infinite;
     }
 
-    /* Responsive */
     @media (max-width: 1024px) {
       .hero-container {
         gap: 2rem;
       }
-      
+
       .contact-grid {
         gap: 2rem;
       }
@@ -763,45 +766,45 @@
         text-align: center;
         gap: 2rem;
       }
-      
+
       .hero-title {
         font-size: 2.5rem;
       }
-      
+
       .nav-menu {
         display: none;
       }
-      
+
       .contact-grid {
         grid-template-columns: 1fr;
       }
-      
+
       .footer-content {
         grid-template-columns: 1fr;
         text-align: center;
       }
-      
+
       .grid-2 {
         grid-template-columns: 1fr;
       }
-      
+
       .grid-3 {
         grid-template-columns: 1fr;
       }
-      
+
       .grid-5 {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       }
-      
+
       .tech-logos {
         gap: 1rem;
       }
-      
+
       .hero-buttons {
         flex-direction: column;
         align-items: center;
       }
-      
+
       .btn {
         width: 100%;
         max-width: 300px;
@@ -813,68 +816,55 @@
       .nav-container {
         padding: 0 1rem;
       }
-      
+
       .section {
         padding: 3rem 1rem;
       }
-      
+
       .hero {
         padding: 100px 1rem 60px;
       }
-      
+
       .hero-title {
         font-size: 2rem;
       }
-      
+
       .section-title {
         font-size: 2rem;
       }
-      
+
       .cta-title {
         font-size: 2rem;
       }
-      
+
       .grid-5 {
         grid-template-columns: 1fr;
       }
     }
 
-    /* Smooth scrolling */
     html {
       scroll-behavior: smooth;
     }
 
-    /* Custom selection */
     ::selection {
       background: rgba(59, 130, 246, 0.3);
       color: white;
     }
   </style>
 </head>
+
 <body>
   <div class="dot-pattern"></div>
-
-  <!-- Theme Toggle Button
-  <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-    <span id="themeIcon">🌙</span>
-  </button> -->
-
   <!-- Navigation -->
   <nav class="navbar">
     <div class="nav-container">
-        <!-- <img src="logo.png" width = "150vh"/> -->
-         <div class="logo">CoElite.tech</div>
-        <ul class="nav-menu">
+      <div class="logo">CoElite.tech</div>
+      <ul class="nav-menu">
         <li><a href="#home" class="nav-link">Home</a></li>
-
         <li><a href="#services" class="nav-link">Services</a></li>
-        <!-- <li><a href="#migration" class="nav-link">Migration</a></li> -->
-        <!-- <li><a href="#training" class="nav-link">Training</a></li> -->
         <li><a href="#process" class="nav-link">Process</a></li>
         <li><a href="#resources" class="nav-link">Resources</a></li>
         <li><a href="#about" class="nav-link">About</a></li>
-
-        <!-- <li><a href="#contact" class="nav-link">Contact</a></li> -->
       </ul>
       <a href="#contact" class="cta-btn">
         <span>Free Consultation</span>
@@ -887,25 +877,19 @@
     <div class="hero-container">
       <div class="hero-content">
         <h1 class="hero-title">Your All-in-One Partner for<br> <span class="rotating-text"></span></h1>
-        <p class="hero-subtitle">We build, migrate, and automate enterprise systems — helping businesses scale faster, work smarter, and collaborate better.</p>
+        <p class="hero-subtitle">We build, migrate, and automate enterprise systems — helping businesses scale faster,
+          work smarter, and collaborate better.</p>
         <div class="hero-buttons">
           <a href="#contact" class="btn btn-primary">Book a Free Consultation</a>
           <a href="#services" class="btn btn-secondary">Explore Our Services</a>
         </div>
       </div>
-      <!-- <div class="hero-visual">
-        <div class="floating-card animate-float">
-          <div class="card-icon">🚀</div>
-          <h3 style="color: var(--text-primary); margin-bottom: 0.5rem;">Modern Enterprise Solutions</h3>
-          <p style="color: var(--text-secondary);">Powered by cutting-edge technology</p>
-        </div>
-      </div> -->
-          <img src="./Learn Data Science (1).gif" alt="Enterprise Technology Solutions" class="hero-gif" />
-          
-          
+      <img src="./Learn Data Science (1).gif" alt="Enterprise Technology Solutions" class="hero-gif" />
+
+
 
       <style>
-        /* Add these new styles for the GIF container */
+
         .gif-container {
           position: relative;
           width: 100%;
@@ -914,11 +898,9 @@
           border-radius: 20px;
           overflow: hidden;
           box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-          /* border: 1px solid var(--border); */
-          /* background: rgba(15, 15, 15, 0.8); */
           backdrop-filter: blur(20px);
         }
-      
+
         .hero-gif {
           width: 100%;
           height: auto;
@@ -926,7 +908,7 @@
           border-radius: 20px;
           opacity: 0.9;
         }
-      
+
         .gif-overlay {
           position: absolute;
           bottom: 0;
@@ -937,74 +919,71 @@
           text-align: center;
           border-radius: 0 0 20px 20px;
         }
-      
+
         .gif-overlay h3 {
           color: var(--text-primary);
           margin-bottom: 0.5rem;
           font-size: 1.5rem;
           font-weight: 600;
         }
-      
+
         .gif-overlay p {
           color: var(--text-secondary);
           font-size: 1rem;
         }
-      
-        /* Light mode adjustments */
+
         .light-mode .gif-container {
           background: rgba(255, 255, 255, 0.8);
           box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
         }
-      
+
         .light-mode .gif-overlay {
           background: linear-gradient(to top, rgba(255, 255, 255, 0.95), transparent);
         }
-      
-        /* Hover effect for GIF container */
+
         .gif-container:hover {
           transform: translateY(-10px) scale(1.02);
           transition: all 0.3s ease;
           box-shadow: 0 30px 80px rgba(59, 130, 246, 0.3);
         }
-      
-        /* Animation for fade in */
+
         @keyframes gifFadeIn {
           from {
             opacity: 0;
             transform: translateY(30px) scale(0.95);
           }
+
           to {
             opacity: 1;
             transform: translateY(0) scale(1);
           }
         }
-      
+
         .gif-container {
           animation: gifFadeIn 1s ease-out 0.4s both;
         }
-      
-        /* Responsive adjustments */
+
         @media (max-width: 768px) {
           .gif-container {
             max-width: 100%;
           }
-          
+
           .gif-overlay h3 {
             font-size: 1.2rem;
           }
-          
+
           .gif-overlay p {
             font-size: 0.9rem;
           }
         }
       </style>
-      
+
     </div>
-    
+
   </section>
 
   <!-- TechStack -->
-  <section id="services"  class="section">
+  <section id="services" class="section">
     <div class="container">
       <h2 class="section-title">We Work With the Tools You Use Every Day</h2>
       <div class="tech-logos">
@@ -1021,7 +1000,7 @@
     </div>
   </section>
 
- 
+
 
   <!-- Services -->
   <section class="section">
@@ -1059,66 +1038,6 @@
     </div>
   </section>
 
-
-  <!-- Migration Services
-  <section id="migration" class="section">
-    <div class="container">
-      <h2 class="section-title">Seamless Migration, Zero Downtime</h2>
-      <p class="section-subtitle">Expert migration services with comprehensive planning and execution.</p>
-      <div class="grid-2">
-        <div class="glass-card">
-          <h3 class="service-title">SharePoint → SharePoint</h3>
-          <p style="color: var(--text-secondary);">All versions supported with minimal downtime and maximum data integrity.</p>
-        </div>
-        <div class="glass-card">
-          <h3 class="service-title">Lotus Notes → SharePoint</h3>
-          <p style="color: var(--text-secondary);">Modernize legacy systems with seamless transition and user training.</p>
-        </div>
-        <div class="glass-card">
-          <h3 class="service-title">IBM Connections → SharePoint</h3>
-          <p style="color: var(--text-secondary);">Streamlined transition with zero data loss and enhanced collaboration.</p>
-        </div>
-        <div class="glass-card">
-          <h3 class="service-title">Jira Instance Migrations</h3>
-          <p style="color: var(--text-secondary);">Cloud to Data Center or vice versa with complete workflow preservation.</p>
-        </div>
-      </div>
-      <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-top: 3rem; flex-wrap: wrap;">
-        <div style="background: rgba(15, 15, 15, 0.6); padding: 1rem 1.5rem; border-radius: 8px; border: 1px solid var(--border); font-weight: 600; color: var(--text-primary);">Source</div>
-        <div style="color: #3b82f6; font-size: 1.5rem;">→</div>
-        <div style="background: rgba(15, 15, 15, 0.6); padding: 1rem 1.5rem; border-radius: 8px; border: 1px solid var(--border); font-weight: 600; color: var(--text-primary);">Planning</div>
-        <div style="color: #3b82f6; font-size: 1.5rem;">→</div>
-        <div style="background: rgba(15, 15, 15, 0.6); padding: 1rem 1.5rem; border-radius: 8px; border: 1px solid var(--border); font-weight: 600; color: var(--text-primary);">Migration</div>
-        <div style="color: #3b82f6; font-size: 1.5rem;">→</div>
-        <div style="background: rgba(15, 15, 15, 0.6); padding: 1rem 1.5rem; border-radius: 8px; border: 1px solid var(--border); font-weight: 600; color: var(--text-primary);">Testing</div>
-        <div style="color: #3b82f6; font-size: 1.5rem;">→</div>
-        <div style="background: rgba(15, 15, 15, 0.6); padding: 1rem 1.5rem; border-radius: 8px; border: 1px solid var(--border); font-weight: 600; color: var(--text-primary);">Go-Live</div>
-      </div>
-    </div>
-  </section> -->
-
-  <!-- Training
-  <section id="training" class="section">
-    <div class="container">
-      <h2 class="section-title">Empower Your Teams with Expert-Led Training</h2>
-      <p class="section-subtitle">Comprehensive training programs designed for real-world application.</p>
-      <div class="grid-3">
-        <div class="glass-card">
-          <h3 class="service-title">Microsoft Apps</h3>
-          <p style="color: var(--text-secondary);">Viva, Copilot, Forms, and more. Comprehensive training for modern workplace tools.</p>
-        </div>
-        <div class="glass-card">
-          <h3 class="service-title">Atlassian Tools</h3>
-          <p style="color: var(--text-secondary);">Jira, Confluence, Bitbucket administration and advanced user workflows.</p>
-        </div>
-        <div class="glass-card">
-          <h3 class="service-title">Power Platform</h3>
-          <p style="color: var(--text-secondary);">Power Apps, Automate, Power BI for business automation and intelligence.</p>
-        </div>
-      </div>
-    </div>
-  </section> -->
-
   <!-- Process -->
   <section id="process" class="section">
     <div class="container">
@@ -1155,11 +1074,12 @@
   </section>
 
 
-   <!-- Why Choose Us -->
-   <section class="section">
+  <!-- Why Choose Us -->
+  <section class="section">
     <div class="container">
       <h2 class="section-title">Why Businesses Choose CoElite.tech</h2>
-      <p class="section-subtitle">We combine technical expertise with business understanding to deliver solutions that truly matter.</p>
+      <p class="section-subtitle">We combine technical expertise with business understanding to deliver solutions that
+        truly matter.</p>
       <div class="grid-3">
         <div class="glass-card value-card">
           <div class="value-icon">🚀</div>
@@ -1181,57 +1101,9 @@
           <h3 class="value-title">Complete Services</h3>
           <p class="value-description">Development, migration, training, and ongoing support - all under one roof.</p>
         </div>
-        <!-- <div class="glass-card value-card">
-          <div class="value-icon">💡</div>
-          <h3 class="value-title">Innovation-Driven</h3>
-          <p class="value-description">AI, automation, and cutting-edge technology solutions for modern businesses.</p>
-        </div> -->
       </div>
     </div>
   </section>
-
-  <!-- Case Studies
-  <section id="case-studies" class="section">
-    <div class="container">
-      <h2 class="section-title">Proven Results for Global Clients</h2>
-      <p class="section-subtitle">Real outcomes that drive business transformation.</p>
-      <div class="grid-2">
-        <div class="glass-card">
-          <h3 class="service-title">SaaS Product Company</h3>
-          <p style="color: var(--text-secondary); margin-bottom: 1rem;"><strong style="color: var(--text-primary);">Challenge:</strong> Slow Jira workflows affecting development velocity</p>
-          <p style="color: var(--text-secondary); margin-bottom: 1.5rem;"><strong style="color: var(--text-primary);">Solution:</strong> Custom post-functions, triggers, and automation rules</p>
-          <div style="background: linear-gradient(45deg, #3b82f6, #8b5cf6); color: white; padding: 1rem; border-radius: 8px; text-align: center; font-weight: 600;">
-            35% faster ticket resolution
-          </div>
-        </div>
-        <div class="glass-card">
-          <h3 class="service-title">Global Manufacturing Firm</h3>
-          <p style="color: var(--text-secondary); margin-bottom: 1rem;"><strong style="color: var(--text-primary);">Challenge:</strong> Legacy Lotus Notes system hindering collaboration</p>
-          <p style="color: var(--text-secondary); margin-bottom: 1.5rem;"><strong style="color: var(--text-primary);">Solution:</strong> Migrated 500GB to SharePoint Online with zero downtime</p>
-          <div style="background: linear-gradient(45deg, #3b82f6, #8b5cf6); color: white; padding: 1rem; border-radius: 8px; text-align: center; font-weight: 600;">
-            Increased productivity & collaboration
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-   Testimonials
-  <section class="section">
-    <div class="container">
-      <h2 class="section-title">What Our Clients Say</h2>
-      <div class="grid-2">
-        <div class="glass-card">
-          <p style="color: var(--text-secondary); font-style: italic; margin-bottom: 1.5rem; font-size: 1.1rem;">"They transformed our Jira workflows in record time. The automation they built saved us hours every week."</p>
-          <div style="color: var(--text-primary); font-weight: 600;">— Project Manager, SaaS Firm</div>
-        </div>
-        <div class="glass-card">
-          <p style="color: var(--text-secondary); font-style: italic; margin-bottom: 1.5rem; font-size: 1.1rem;">"Migration was smooth, stress-free, and on budget. Our team was productive from day one."</p>
-          <div style="color: var(--text-primary); font-weight: 600;">— IT Head, Global Firm</div>
-        </div>
-      </div>
-    </div>
-  </section> -->
 
   <!-- Blog / Insights Preview -->
   <section id="resources" class="section">
@@ -1240,28 +1112,37 @@
       <p class="section-subtitle">Stay ahead with our expert insights on enterprise automation and collaboration.</p>
       <div class="grid-3">
         <div class="glass-card">
-          <div style="width: 100%; height: 200px; background: linear-gradient(45deg, #3b82f6, #8b5cf6); border-radius: 8px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">📊</div>
+          <div
+            style="width: 100%; height: 200px; background: linear-gradient(45deg, #3b82f6, #8b5cf6); border-radius: 8px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">
+            📊</div>
           <h3 class="service-title">Top 5 Jira Automations to Save Hours Every Week</h3>
-          <p style="color: var(--text-secondary); margin-bottom: 1rem;">Discover the most effective Jira automation rules that can streamline your development workflow and boost team productivity.</p>
+          <p style="color: var(--text-secondary); margin-bottom: 1rem;">Discover the most effective Jira automation
+            rules that can streamline your development workflow and boost team productivity.</p>
           <a href="#" style="color: #3b82f6; text-decoration: none; font-weight: 600;">Read More →</a>
         </div>
         <div class="glass-card">
-          <div style="width: 100%; height: 200px; background: linear-gradient(45deg, #8b5cf6, #3b82f6); border-radius: 8px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">⚡</div>
+          <div
+            style="width: 100%; height: 200px; background: linear-gradient(45deg, #8b5cf6, #3b82f6); border-radius: 8px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">
+            ⚡</div>
           <h3 class="service-title">How Power Platform Boosts Enterprise Productivity</h3>
-          <p style="color: var(--text-secondary); margin-bottom: 1rem;">Learn how Microsoft Power Platform can transform your business processes with low-code solutions and intelligent automation.</p>
+          <p style="color: var(--text-secondary); margin-bottom: 1rem;">Learn how Microsoft Power Platform can transform
+            your business processes with low-code solutions and intelligent automation.</p>
           <a href="#" style="color: #3b82f6; text-decoration: none; font-weight: 600;">Read More →</a>
         </div>
         <div class="glass-card">
-          <div style="width: 100%; height: 200px; background: linear-gradient(45deg, #3b82f6, #8b5cf6); border-radius: 8px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">📋</div>
+          <div
+            style="width: 100%; height: 200px; background: linear-gradient(45deg, #3b82f6, #8b5cf6); border-radius: 8px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">
+            📋</div>
           <h3 class="service-title">Migration Checklist: From Lotus Notes to SharePoint</h3>
-          <p style="color: var(--text-secondary); margin-bottom: 1rem;">Complete guide and checklist for successfully migrating from legacy Lotus Notes to modern SharePoint collaboration.</p>
+          <p style="color: var(--text-secondary); margin-bottom: 1rem;">Complete guide and checklist for successfully
+            migrating from legacy Lotus Notes to modern SharePoint collaboration.</p>
           <a href="#" style="color: #3b82f6; text-decoration: none; font-weight: 600;">Read More →</a>
         </div>
       </div>
     </div>
   </section>
 
-  
+
 
   <!-- About Section -->
   <section id="about" class="section">
@@ -1269,7 +1150,7 @@
       <h2 class="section-title">Who We Are</h2>
       <div style="max-width: 800px; margin: 0 auto; text-align: center;">
         <p style="color: var(--text-secondary); font-size: 1.2rem; line-height: 1.8; margin-bottom: 2rem;">
-          We are a team of certified Atlassian and Microsoft experts with deep experience in enterprise solutions, 
+          We are a team of certified Atlassian and Microsoft experts with deep experience in enterprise solutions,
           helping organizations modernize workflows, reduce manual work, and improve collaboration.
         </p>
         <!-- <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
@@ -1279,19 +1160,26 @@
         </p> -->
         <div class="grid-3" style="margin-top: 3rem;">
           <div class="glass-card" style="text-align: center;">
-            <div style="font-size: 2.5rem; margin-bottom: 1rem; background: linear-gradient(45deg, #3b82f6, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">🏆</div>
+            <div
+              style="font-size: 2.5rem; margin-bottom: 1rem; background: linear-gradient(45deg, #3b82f6, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+              🏆</div>
             <h3 style="color: var(--text-primary); margin-bottom: 0.5rem;">Certified Experts</h3>
             <p style="color: var(--text-secondary);">Official certifications in Atlassian and Microsoft technologies</p>
           </div>
           <div class="glass-card" style="text-align: center;">
-            <div style="font-size: 2.5rem; margin-bottom: 1rem; background: linear-gradient(45deg, #3b82f6, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">🌍</div>
+            <div
+              style="font-size: 2.5rem; margin-bottom: 1rem; background: linear-gradient(45deg, #3b82f6, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+              🌍</div>
             <h3 style="color: var(--text-primary); margin-bottom: 0.5rem;">Global Experience</h3>
             <p style="color: var(--text-secondary);">Serving clients across multiple industries and continents</p>
           </div>
           <div class="glass-card" style="text-align: center;">
-            <div style="font-size: 2.5rem; margin-bottom: 1rem; background: linear-gradient(45deg, #3b82f6, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">💯</div>
+            <div
+              style="font-size: 2.5rem; margin-bottom: 1rem; background: linear-gradient(45deg, #3b82f6, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+              💯</div>
             <h3 style="color: var(--text-primary); margin-bottom: 0.5rem;">Proven Results</h3>
-            <p style="color: var(--text-secondary);">Track record of successful implementations and satisfied clients</p>
+            <p style="color: var(--text-secondary);">Track record of successful implementations and satisfied clients
+            </p>
           </div>
         </div>
       </div>
@@ -1312,26 +1200,26 @@
       <p class="section-subtitle">Start your transformation journey with a free consultation.</p>
       <div class="contact-grid">
         <div class="glass-card">
-          <form>
+          <form id="contactForm">
             <div class="form-group">
-              <input type="text" class="form-input" placeholder="Your Name" required>
+              <input type="text" id="name" class="form-input" placeholder="Your Name" required>
             </div>
             <div class="form-group">
-              <input type="email" class="form-input" placeholder="Your Email" required>
+              <input type="email" id="email" class="form-input" placeholder="Your Email" required>
             </div>
             <div class="form-group">
-              <textarea rows="5" class="form-input" placeholder="Your Message" required></textarea>
+              <textarea id="message" rows="5" class="form-input" placeholder="Your Message" required></textarea>
             </div>
             <button type="submit" class="submit-btn">Send Message</button>
           </form>
         </div>
         <div class="contact-info">
-          <h3 style="color: var(--text-primary); font-size: 1.5rem; margin-bottom: 1.5rem;">Let's Start a Conversation</h3>
+          <h3 style="color: var(--text-primary); font-size: 1.5rem; margin-bottom: 1.5rem;">Let's Start a Conversation
+          </h3>
           <div class="contact-item">
             <span style="font-size: 1.5rem;">📧</span>
             <div>
               <div style="font-weight: 600; color: var(--text-primary);">Email</div>
-              <a href="/cdn-cgi/l/email-protection#f29a979e9e9db2919d979e9b8697dc8697919a"><span class="__cf_email__" data-cfemail="066e636a6a69466569636a6f7263287263656e">[email&#160;protected]</span></a>
             </div>
           </div>
           <div class="contact-item">
@@ -1358,7 +1246,8 @@
     <div class="footer-content">
       <div>
         <h3 class="footer-title">CoElite.tech</h3>
-        <p class="footer-text">Your trusted partner for Atlassian, Microsoft, and Full-Stack solutions. We help businesses scale faster, work smarter, and collaborate better.</p>
+        <p class="footer-text">Your trusted partner for Atlassian, Microsoft, and Full-Stack solutions. We help
+          businesses scale faster, work smarter, and collaborate better.</p>
       </div>
       <div>
         <h3 class="footer-title">Quick Links</h3>
@@ -1384,32 +1273,20 @@
     </div>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    // Wait for DOM to load
-    document.addEventListener('DOMContentLoaded', function() {
-      // Theme toggle functionality
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
       const themeToggle = document.getElementById('themeToggle');
       const themeIcon = document.getElementById('themeIcon');
       const body = document.body;
 
-      // Check for saved theme preference or default to dark mode
       const savedTheme = localStorage.getItem('theme') || 'dark';
       if (savedTheme === 'light') {
         body.classList.add('light-mode');
         themeIcon.textContent = '☀️';
       }
 
-      themeToggle.addEventListener('click', () => {
-        body.classList.toggle('light-mode');
-        const isLight = body.classList.contains('light-mode');
-        
-        themeIcon.textContent = isLight ? '☀️' : '🌙';
-        localStorage.setItem('theme', isLight ? 'light' : 'dark');
-      });
-
-      // Typewriter effect for rotating text
       const rotatingText = document.querySelector('.rotating-text');
-      
+
       if (rotatingText) {
         const words = ['Atlassian', 'Microsoft', 'Full-Stack'];
         let currentIndex = 0;
@@ -1419,7 +1296,7 @@
 
         function typeWriter() {
           const word = words[currentIndex];
-          
+
           if (isDeleting) {
             currentWord = word.substring(0, charIndex - 1);
             charIndex--;
@@ -1433,7 +1310,6 @@
           let typeSpeed = isDeleting ? 100 : 150;
 
           if (!isDeleting && charIndex === word.length) {
-            // Pause at end of word
             typeSpeed = 2000;
             isDeleting = true;
           } else if (isDeleting && charIndex === 0) {
@@ -1445,7 +1321,6 @@
           setTimeout(typeWriter, typeSpeed);
         }
 
-        // Start typewriter effect after a delay
         setTimeout(typeWriter, 1000);
       }
 
@@ -1467,14 +1342,51 @@
       window.addEventListener('scroll', () => {
         const navbar = document.querySelector('.navbar');
         if (window.scrollY > 100) {
-          navbar.style.background = body.classList.contains('light-mode') 
-            ? 'rgba(255, 255, 255, 0.98)' 
+          navbar.style.background = body.classList.contains('light-mode')
+            ? 'rgba(255, 255, 255, 0.98)'
             : 'rgba(0, 0, 0, 0.98)';
         } else {
-          navbar.style.background = body.classList.contains('light-mode') 
-            ? 'rgba(255, 255, 255, 0.95)' 
+          navbar.style.background = body.classList.contains('light-mode')
+            ? 'rgba(255, 255, 255, 0.95)'
             : 'rgba(0, 0, 0, 0.8)';
         }
+      });
+
+      const form = document.getElementById("contactForm");
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
+        const payload = { name, email, message };
+ 
+        fetch("/contact/mail", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(payload)
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.text();
+          })
+          .then(data => {
+            console.log("Server response:", data);
+            alert("Thanks for reaching out, we'll get back to you soon!");
+            form.reset();
+          })
+          .catch(error => {
+            console.error("Error:", error);
+            alert("Failed to send message. Please try again later.");
+          });
+
+        form.reset();
+
       });
     });
   </script>
