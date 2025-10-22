@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -141,26 +142,25 @@
       position: relative;
     }
 
-    .nav-link::before {
+    .nav-link::after {
       content: '';
       position: absolute;
-      inset: 0;
-      border-radius: 8px;
-      padding: 1px;
-      background: linear-gradient(45deg, transparent, #3b82f6, transparent);
-      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      mask-composite: xor;
-      opacity: 0;
-      transition: opacity 0.3s ease;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+      transition: width 0.3s ease;
+
     }
 
-    .nav-link:hover {
+    /* .nav-link:hover {
       color: var(--text-primary);
       background: rgba(59, 130, 246, 0.1);
-    }
+    } */
 
-    .nav-link:hover::before {
-      opacity: 1;
+    .nav-link:hover::after {
+      width: 100%;
     }
 
     .cta-btn {
@@ -415,7 +415,7 @@
 
     .grid-3 {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
       gap: 2rem;
     }
 
@@ -854,24 +854,27 @@
 <body>
   <div class="dot-pattern"></div>
 
-  <!-- Theme Toggle Button -->
+  <!-- Theme Toggle Button
   <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
     <span id="themeIcon">🌙</span>
-  </button>
+  </button> -->
 
   <!-- Navigation -->
   <nav class="navbar">
     <div class="nav-container">
-        <img src="logo.png" width = "150vh"/>
+        <!-- <img src="logo.png" width = "150vh"/> -->
+         <div class="logo">CoElite.tech</div>
         <ul class="nav-menu">
         <li><a href="#home" class="nav-link">Home</a></li>
+
         <li><a href="#services" class="nav-link">Services</a></li>
-        <li><a href="#migration" class="nav-link">Migration</a></li>
-        <li><a href="#training" class="nav-link">Training</a></li>
+        <!-- <li><a href="#migration" class="nav-link">Migration</a></li> -->
+        <!-- <li><a href="#training" class="nav-link">Training</a></li> -->
         <li><a href="#process" class="nav-link">Process</a></li>
-        <li><a href="#case-studies" class="nav-link">Case Studies</a></li>
+        <li><a href="#resources" class="nav-link">Resources</a></li>
         <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
+
+        <!-- <li><a href="#contact" class="nav-link">Contact</a></li> -->
       </ul>
       <a href="#contact" class="cta-btn">
         <span>Free Consultation</span>
@@ -890,18 +893,118 @@
           <a href="#services" class="btn btn-secondary">Explore Our Services</a>
         </div>
       </div>
-      <div class="hero-visual">
+      <!-- <div class="hero-visual">
         <div class="floating-card animate-float">
           <div class="card-icon">🚀</div>
           <h3 style="color: var(--text-primary); margin-bottom: 0.5rem;">Modern Enterprise Solutions</h3>
           <p style="color: var(--text-secondary);">Powered by cutting-edge technology</p>
         </div>
-      </div>
+      </div> -->
+          <img src="./Learn Data Science (1).gif" alt="Enterprise Technology Solutions" class="hero-gif" />
+          
+          
+
+      <style>
+        /* Add these new styles for the GIF container */
+        .gif-container {
+          position: relative;
+          width: 100%;
+          max-width: 700px;
+          margin: 0 auto;
+          border-radius: 20px;
+          overflow: hidden;
+          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+          /* border: 1px solid var(--border); */
+          /* background: rgba(15, 15, 15, 0.8); */
+          backdrop-filter: blur(20px);
+        }
+      
+        .hero-gif {
+          width: 100%;
+          height: auto;
+          display: block;
+          border-radius: 20px;
+          opacity: 0.9;
+        }
+      
+        .gif-overlay {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+          padding: 2rem;
+          text-align: center;
+          border-radius: 0 0 20px 20px;
+        }
+      
+        .gif-overlay h3 {
+          color: var(--text-primary);
+          margin-bottom: 0.5rem;
+          font-size: 1.5rem;
+          font-weight: 600;
+        }
+      
+        .gif-overlay p {
+          color: var(--text-secondary);
+          font-size: 1rem;
+        }
+      
+        /* Light mode adjustments */
+        .light-mode .gif-container {
+          background: rgba(255, 255, 255, 0.8);
+          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+      
+        .light-mode .gif-overlay {
+          background: linear-gradient(to top, rgba(255, 255, 255, 0.95), transparent);
+        }
+      
+        /* Hover effect for GIF container */
+        .gif-container:hover {
+          transform: translateY(-10px) scale(1.02);
+          transition: all 0.3s ease;
+          box-shadow: 0 30px 80px rgba(59, 130, 246, 0.3);
+        }
+      
+        /* Animation for fade in */
+        @keyframes gifFadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(30px) scale(0.95);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
+        }
+      
+        .gif-container {
+          animation: gifFadeIn 1s ease-out 0.4s both;
+        }
+      
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+          .gif-container {
+            max-width: 100%;
+          }
+          
+          .gif-overlay h3 {
+            font-size: 1.2rem;
+          }
+          
+          .gif-overlay p {
+            font-size: 0.9rem;
+          }
+        }
+      </style>
+      
     </div>
+    
   </section>
 
-  <!-- Trusted By -->
-  <section class="section">
+  <!-- TechStack -->
+  <section id="services"  class="section">
     <div class="container">
       <h2 class="section-title">We Work With the Tools You Use Every Day</h2>
       <div class="tech-logos">
@@ -918,43 +1021,10 @@
     </div>
   </section>
 
-  <!-- Why Choose Us -->
-  <section class="section">
-    <div class="container">
-      <h2 class="section-title">Why Businesses Choose CoElite.tech</h2>
-      <p class="section-subtitle">We combine technical expertise with business understanding to deliver solutions that truly matter.</p>
-      <div class="grid-3">
-        <div class="glass-card value-card">
-          <div class="value-icon">🚀</div>
-          <h3 class="value-title">Certified Expertise</h3>
-          <p class="value-description">Skilled in Atlassian & Microsoft enterprise tools with proven certifications.</p>
-        </div>
-        <div class="glass-card value-card">
-          <div class="value-icon">⚡</div>
-          <h3 class="value-title">Faster Delivery</h3>
-          <p class="value-description">Agile development methodology for quicker results and faster time-to-market.</p>
-        </div>
-        <div class="glass-card value-card">
-          <div class="value-icon">🔒</div>
-          <h3 class="value-title">Enterprise Security</h3>
-          <p class="value-description">Solutions built with compliance and enterprise security standards in mind.</p>
-        </div>
-        <div class="glass-card value-card">
-          <div class="value-icon">🎯</div>
-          <h3 class="value-title">Complete Services</h3>
-          <p class="value-description">Development, migration, training, and ongoing support - all under one roof.</p>
-        </div>
-        <div class="glass-card value-card">
-          <div class="value-icon">💡</div>
-          <h3 class="value-title">Innovation-Driven</h3>
-          <p class="value-description">AI, automation, and cutting-edge technology solutions for modern businesses.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+ 
 
   <!-- Services -->
-  <section id="services" class="section">
+  <section class="section">
     <div class="container">
       <h2 class="section-title">What We Do Best</h2>
       <p class="section-subtitle">Comprehensive solutions across the entire technology stack.</p>
@@ -989,7 +1059,8 @@
     </div>
   </section>
 
-  <!-- Migration Services -->
+
+  <!-- Migration Services
   <section id="migration" class="section">
     <div class="container">
       <h2 class="section-title">Seamless Migration, Zero Downtime</h2>
@@ -1024,9 +1095,9 @@
         <div style="background: rgba(15, 15, 15, 0.6); padding: 1rem 1.5rem; border-radius: 8px; border: 1px solid var(--border); font-weight: 600; color: var(--text-primary);">Go-Live</div>
       </div>
     </div>
-  </section>
+  </section> -->
 
-  <!-- Training -->
+  <!-- Training
   <section id="training" class="section">
     <div class="container">
       <h2 class="section-title">Empower Your Teams with Expert-Led Training</h2>
@@ -1046,7 +1117,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- Process -->
   <section id="process" class="section">
@@ -1083,7 +1154,43 @@
     </div>
   </section>
 
-  <!-- Case Studies -->
+
+   <!-- Why Choose Us -->
+   <section class="section">
+    <div class="container">
+      <h2 class="section-title">Why Businesses Choose CoElite.tech</h2>
+      <p class="section-subtitle">We combine technical expertise with business understanding to deliver solutions that truly matter.</p>
+      <div class="grid-3">
+        <div class="glass-card value-card">
+          <div class="value-icon">🚀</div>
+          <h3 class="value-title">Certified Expertise</h3>
+          <p class="value-description">Skilled in Atlassian & Microsoft enterprise tools with proven certifications.</p>
+        </div>
+        <div class="glass-card value-card">
+          <div class="value-icon">⚡</div>
+          <h3 class="value-title">Faster Delivery</h3>
+          <p class="value-description">Agile development methodology for quicker results and faster time-to-market.</p>
+        </div>
+        <div class="glass-card value-card">
+          <div class="value-icon">🔒</div>
+          <h3 class="value-title">Enterprise Security</h3>
+          <p class="value-description">Solutions built with compliance and enterprise security standards in mind.</p>
+        </div>
+        <div class="glass-card value-card">
+          <div class="value-icon">🎯</div>
+          <h3 class="value-title">Complete Services</h3>
+          <p class="value-description">Development, migration, training, and ongoing support - all under one roof.</p>
+        </div>
+        <!-- <div class="glass-card value-card">
+          <div class="value-icon">💡</div>
+          <h3 class="value-title">Innovation-Driven</h3>
+          <p class="value-description">AI, automation, and cutting-edge technology solutions for modern businesses.</p>
+        </div> -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Studies
   <section id="case-studies" class="section">
     <div class="container">
       <h2 class="section-title">Proven Results for Global Clients</h2>
@@ -1109,7 +1216,7 @@
     </div>
   </section>
 
-  <!-- Testimonials -->
+   Testimonials
   <section class="section">
     <div class="container">
       <h2 class="section-title">What Our Clients Say</h2>
@@ -1124,10 +1231,10 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- Blog / Insights Preview -->
-  <section class="section">
+  <section id="resources" class="section">
     <div class="container">
       <h2 class="section-title">Latest Insights & Resources</h2>
       <p class="section-subtitle">Stay ahead with our expert insights on enterprise automation and collaboration.</p>
@@ -1165,11 +1272,11 @@
           We are a team of certified Atlassian and Microsoft experts with deep experience in enterprise solutions, 
           helping organizations modernize workflows, reduce manual work, and improve collaboration.
         </p>
-        <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
+        <!-- <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
           Our passion lies in transforming complex business challenges into elegant, automated solutions that drive 
           real business value. With years of experience across diverse industries, we understand that every organization 
           has unique needs, and we tailor our approach accordingly.
-        </p>
+        </p> -->
         <div class="grid-3" style="margin-top: 3rem;">
           <div class="glass-card" style="text-align: center;">
             <div style="font-size: 2.5rem; margin-bottom: 1rem; background: linear-gradient(45deg, #3b82f6, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">🏆</div>
@@ -1372,5 +1479,4 @@
     });
   </script>
 
-<!-- Cloudflare Pages Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "449dc2acdfd848bba54eec9f7e60e87d"}'></script><!-- Cloudflare Pages Analytics --></body>
 </html>
