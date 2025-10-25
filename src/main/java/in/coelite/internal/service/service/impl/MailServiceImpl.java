@@ -73,13 +73,58 @@ public class MailServiceImpl implements MailService {
     public void sendMail(ContactDto contactInfo) {
 
         // 1. Create a simple HTML version of the message
-        String htmlMessage = "<h1>New Contact Form Submission</h1>" +
-                             "<p><strong>Name:</strong> " + contactInfo.getName() + "</p>" +
-                             "<p><strong>Email:</strong> " + contactInfo.getEmail() + "</p>" +
-                             "<p><strong>Message:</strong></p>" +
-                             "<div style=\"border: 1px solid #ccc; padding: 10px;\">" + 
-                                contactInfo.getMessage().replace("\n", "<br>") + 
-                             "</div>";
+        String htmlMessage = "<!DOCTYPE html>"
+    + "<html lang=\"en\">"
+    + "<head>"
+    + "    <meta charset=\"UTF-8\">"
+    + "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">"
+    + "    <title>Contact Details</title>"
+    + "    <style>"
+    + "        body { font-family: Arial, sans-serif; background-color: #f4f4f9; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }"
+    + "        .contact-card { background: #ffffff; padding: 30px; border-radius: 10px; box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); width: 100%; max-width: 450px; text-align: left; }"
+    + "        h2 { text-align: center; color: #1e88e5; margin-bottom: 25px; border-bottom: 2px solid #e0e0e0; padding-bottom: 10px; }"
+    + "        .detail-item { margin-bottom: 15px; line-height: 1.6; }"
+    + "        .detail-item strong { display: inline-block; width: 80px; color: #555; font-weight: 600; }"
+    + "        .message-box { background-color: #f9f9f9; border: 1px dashed #ccc; padding: 15px; border-radius: 6px; margin-top: 20px; }"
+    + "        .message-box p { margin: 0; white-space: pre-wrap; color: #333; font-style: italic; }"
+    + "        .mailto-link { display: block; margin-top: 30px; text-align: center; }"
+    + "        .mailto-link a { background-color: #4CAF50; color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; transition: background-color 0.3s ease; }"
+    + "        .mailto-link a:hover { background-color: #45a049; }"
+    + "    </style>"
+    + "</head>"
+    + "<body>"
+    + "    <div class=\"contact-card\">"
+    + "        <h2>New Contact Form Submission</h2>" // Modified title for clarity
+    
+    // --- DYNAMIC DATA FIELDS ---
+    + "        <div class=\"detail-item\">"
+    + "            <strong>Name:</strong> " + contactInfo.getName() + 
+    + "        </div>"
+    
+    + "        <div class=\"detail-item\">"
+    + "            <strong>Email:</strong> <a href=\"mailto:" + contactInfo.getEmail() + "\">" + contactInfo.getEmail() + "</a>" +
+    + "        </div>"
+    
+    + "        <div class=\"message-box\">"
+    + "            <strong>Message:</strong>"
+    + "            <p>" + contactInfo.getMessage().replace("\n", "<br>") + "</p>" // Replace newlines with <br> for HTML
+    + "        </div>"
+    
+    // --- DYNAMIC MAILTO LINK ---
+    + "        <div class=\"mailto-link\">"
+    + "            <a href=\"mailto:support@coelite.in?subject=Re:%20Contact%20from%20" + contactInfo.getName() + 
+                 "&body=Name:%20" + contactInfo.getName() + "%0AEmail:%20" + contactInfo.getEmail() + "%0A%0A" + 
+                 contactInfo.getMessage().replace("\n", "%0A") + "\">" // URL-encoded body
+    + "                Reply to this Message"
+    + "            </a>"
+    + "        </div>"
+    
+    + "        <small style=\"display: block; text-align: center; margin-top: 15px; color: #999;\">"
+    + "            *This is an automated notification. Click 'Reply' to respond to the sender."
+    + "        </small>"
+    + "    </div>"
+    + "</body>"
+    + "</html>";
 
         // 2. Build the Resend API Request Body
         ResendEmailRequest requestBody = new ResendEmailRequest(
