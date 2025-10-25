@@ -73,7 +73,18 @@ public class MailServiceImpl implements MailService {
     public void sendMail(ContactDto contactInfo) {
 
         // 1. Create a simple HTML version of the message
-        StringBuilder htmlBuilder = new StringBuilder();
+       String name = contactInfo.getName();
+    String email = contactInfo.getEmail();
+    String messageHtml = contactInfo.getMessage().replace("\n", "<br>");
+    
+    // URL-encode the message body for the mailto link
+    String mailtoBody = "Name:%20" + name + 
+                        "%0AEmail:%20" + email + 
+                        "%0A%0A" + 
+                        contactInfo.getMessage().replace("\n", "%0A");
+
+    // Use StringBuilder to efficiently construct the final HTML string
+    StringBuilder htmlBuilder = new StringBuilder();
 
     htmlBuilder.append("<!DOCTYPE html>")
                .append("<html lang=\"en\">")
@@ -126,7 +137,7 @@ public class MailServiceImpl implements MailService {
                .append("</body>")
                .append("</html>");
 
-    String htmlMessage = htmlBuilder.toString();
+        String htmlMessage = htmlBuilder.toString();
         // 2. Build the Resend API Request Body
         ResendEmailRequest requestBody = new ResendEmailRequest(
             "onboarding@resend.dev", // Must be a verified sender in your Resend account
