@@ -60,6 +60,7 @@ public class MailServiceImpl implements MailService {
 
     public MailServiceImpl(WebClient.Builder webClientBuilder) {
         // Build and configure the WebClient with the base URL and Authorization header
+        System.out.println("DEBUG: Resend API Key loaded: " + resendApiKey); // Check your console
         this.webClient = webClientBuilder
             .baseUrl(RESEND_API_URL)
             .defaultHeader("Authorization", "Bearer " + resendApiKey)
