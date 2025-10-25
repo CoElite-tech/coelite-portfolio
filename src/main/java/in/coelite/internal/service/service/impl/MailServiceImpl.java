@@ -34,7 +34,6 @@
 //     }
 
 // }
-
 package in.coelite.internal.portfolio.service.impl;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -49,21 +48,23 @@ import in.coelite.internal.portfolio.service.MailService;
 @Service
 public class MailServiceImpl implements MailService {
     
-    @Value("${resend.api.key}")
-    private String resendApiKey;
-
+    // We will use the WebClient to make the HTTP call
     private final WebClient webClient;
     private static final String RESEND_API_URL = "https://api.resend.com/emails";
     
-    // Using a record/class for the Resend JSON body
+    // Using a record for the JSON body (requires Java 16+, otherwise use a class)
     private record ResendEmailRequest(String from, String to, String subject, String html) {}
 
-    public MailServiceImpl(WebClient.Builder webClientBuilder) {
-        // Build and configure the WebClient with the base URL and Authorization header
-        System.out.println("DEBUG: Resend API Key loaded: " + resendApiKey); // Check your console
+    // --- CONSTRUCTOR: Injecting @Value and initializing WebClient ---
+    // The key injection happens here first, guaranteeing it's available for WebClient setup.
+    public MailServiceImpl(WebClient.Builder webClientBuilder, 
+                           @Value("${resend.api.key}") String resendApiKey) {
+        
+        // This is where we configure the WebClient with the base headers (API Key)
         this.webClient = webClientBuilder
             .baseUrl(RESEND_API_URL)
-            .defaultHeader("Authorization", "Bearer " + resendApiKey)
+            // Set the Authorization header correctly here: "Bearer [key]"
+            .defaultHeader("Authorization", "Bearer " + resendApiKey) 
             .defaultHeader("Content-Type", MediaType.APPLICATION_JSON_VALUE)
             .build();
     }
@@ -71,7 +72,7 @@ public class MailServiceImpl implements MailService {
     @Override
     public void sendMail(ContactDto contactInfo) {
 
-        // 1. Create an HTML version of the message
+        // 1. Create a simple HTML version of the message
         String htmlMessage = "<h1>New Contact Form Submission</h1>" +
                              "<p><strong>Name:</strong> " + contactInfo.getName() + "</p>" +
                              "<p><strong>Email:</strong> " + contactInfo.getEmail() + "</p>" +
@@ -82,7 +83,7 @@ public class MailServiceImpl implements MailService {
 
         // 2. Build the Resend API Request Body
         ResendEmailRequest requestBody = new ResendEmailRequest(
-            "onboarding@resend.dev", // Verified sender
+            "onboarding@resend.dev", // Must be a verified sender in your Resend account
             "support@coelite.in",
             "New Contact Form Submission from " + contactInfo.getName(),
             htmlMessage
@@ -93,13 +94,25 @@ public class MailServiceImpl implements MailService {
             webClient.post()
                 .body(BodyInserters.fromValue(requestBody))
                 .retrieve()
-                .toBodilessEntity() // We don't care about the response body, just status
-                .block(); // Blocks until the call is complete (use .subscribe() for non-blocking)
-
+                // Use onStatus to handle non-2xx status codes (like 401, 400, 500)
+                .onStatus(status -> status.isError(), response -> {
+                    // Throw a specific exception on error
+                    return response.bodyToMono(String.class)
+                                   .flatMap(body -> {
+                                       throw new RuntimeException("Resend API failed with status " + response.statusCode() + ". Response body: " + body);
+                                   });
+                })
+                .bodyToMono(String.class) // Expecting a JSON string response (e.g., {"id": "..."})
+                .block(); 
+                
             System.out.println("Email sent successfully via Resend API.");
         } catch (Exception e) {
+            // The improved error handling catches the exception thrown by onStatus
             System.err.println("Failed to send email via Resend API: " + e.getMessage());
             e.printStackTrace();
+            
+            // You can optionally re-throw the exception here if the application should stop
+            // throw new RuntimeException("Email service failure.", e);
         }
     }
 }
