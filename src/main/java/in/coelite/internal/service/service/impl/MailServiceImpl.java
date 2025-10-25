@@ -58,7 +58,7 @@ public class MailServiceImpl implements MailService {
     // --- CONSTRUCTOR: Injecting @Value and initializing WebClient ---
     // The key injection happens here first, guaranteeing it's available for WebClient setup.
     public MailServiceImpl(WebClient.Builder webClientBuilder, 
-                           @Value("${resend.api.key}") String resendApiKey) {
+                           @Value("${key}") String resendApiKey) {
         
         // This is where we configure the WebClient with the base headers (API Key)
         this.webClient = webClientBuilder
