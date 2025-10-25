@@ -1,6 +1,4 @@
 spring:
   mail:
     password: ${MAIL_PASSWORD}
-resend:
-  api:
-    key: ${RESEND_API}
+key: ${RESEND_API}
